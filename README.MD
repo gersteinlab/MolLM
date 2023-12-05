@@ -9,6 +9,9 @@ This is code for the [MolLM model](https://www.biorxiv.org/content/10.1101/2023.
 
 Large dataset and model checkpoints files are in zip files downloadable from this [Google Drive folder](https://drive.google.com/drive/folders/17XhqdsDOxiT8PEDLHdsLPKf62PXPmbms?usp=sharing). The paths within this folder correspond to locations where the zip folders should be decompressed. 
 
+## Pre-training
+
+## Downstream Tasks
 
 ## Cite us
 ```
