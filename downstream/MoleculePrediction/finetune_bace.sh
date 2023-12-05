@@ -1,0 +1,1 @@
+python finetune.py --input_model_file model-epoch=394.ckpt --runseed 0 --dataset bbbp --eval_train 1
