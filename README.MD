@@ -1,4 +1,11 @@
-# MolLM
+# MolLM: A Unified Language Model to Integrate Biomedical Text with 2D and 3D Molecular Representations
+
+
+<p align="center">
+   📖 <a href="https://www.biorxiv.org/content/10.1101/2023.11.25.568656v2" target="_blank">Paper</a>  
+</p>
+
+
 This is code for the [MolLM model](https://www.biorxiv.org/content/10.1101/2023.11.25.568656v1). The code is organized as follows:
 - `dataset-creation`: Code to generate our dataset of 160k graph text pairs
 - `downstream`: Code for the MolLM and downstream tasks
@@ -16,7 +23,7 @@ Large dataset and model checkpoints files are in zip files downloadable from thi
 ## Cite us
 ```
 @article{tang2023mollm,
-  title={MolLM: Integrating 3D and 2D Molecular Representations with Biomedical Text via a Unified Pre-trained Language Model},
+  title={MolLM: A Unified Language Model to Integrate Biomedical Text with 2D and 3D Molecular Representations},
   author={Tang, Xiangru and Tran, Andrew and Tan, Jeffrey and Gerstein, Mark},
   journal={bioRxiv},
   pages={2023--11},
