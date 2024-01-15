@@ -6,7 +6,7 @@
 </p>
 
 
-This is code for the [MolLM model](https://www.biorxiv.org/content/10.1101/2023.11.25.568656v1). The code is organized as follows:
+This is code for the [MolLM model](https://www.biorxiv.org/content/10.1101/2023.11.25.568656v2). The code is organized as follows:
 - `dataset-creation`: Code to generate our dataset of 160k graph text pairs
 - `downstream`: Code for the MolLM and downstream tasks
 - `environments`: Conda environments 
