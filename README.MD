@@ -22,7 +22,7 @@ Utilize the training script `pretrain/train.sh` to pretrain the model. Inside th
 
 ## Downstream Tasks
 
-See the above on environments for the Conda environments to use for each downstream task.
+See the above on environments for the appropriate Conda environment to use for each downstream task.
 
 For graph-text cross-modality retrieval, within the `downstream/GraphTextRetrieval` folder, the `finetune-sentence.sh` and `finetune-paragraph.sh` scripts are for finetuning the moel for the task at the sentence and paragraph respectively. Similarly, the `test-sent.sh` and `test-paragraph.sh` scripts perform the evaluation. These scripts can be modified to change the pretrained epoch and GPUs used.
 
