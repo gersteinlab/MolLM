@@ -23,7 +23,7 @@ data = importlib.import_module("Transformer_M.data")
 preprocess_item = data.wrapper.preprocess_item
 collator_3d = data.collator_3d
 
-use_3d = False
+use_3d = True
 
 
 def xavier_uniform_zeros_(layer):
@@ -87,11 +87,11 @@ class GINSimclr(pl.LightningModule):
         # )
 
         # Use 3D set in main.py
-        print('=== 2D/3D SETTING ===')
-        print('Transformer-MoMu: ' + ('USING 3D..' if use_3d else 'USING 2D ONLY..'))
+        # print('=== 2D/3D SETTING ===')
+        # print('Transformer-MoMu: ' + ('USING 3D..' if use_3d else 'USING 2D ONLY..'))
         # print(f'DROPOUT = {self.dropout}')
         # dropouts = [float(s) for s in self.m_dropout.split(',')]
-        print('=== ------------- ===')
+        # print('=== ------------- ===')
         args = SimpleNamespace(_name='transformer_m_base', act_dropout=0.1, activation_fn='gelu', add_3d=use_3d,
                                add_prev_output_tokens=False, all_gather_list_size=16384, amp=False, amp_batch_retries=2,
                                amp_init_scale=128, amp_scale_window=None, apply_init=True, arch='transformer_m_base',
@@ -152,18 +152,18 @@ class GINSimclr(pl.LightningModule):
                                write_checkpoints_asynchronously=False, zero_sharding='none')
 
         self.graph_encoder = TransformerM(args=args)  # type: pytorch_lightning.LightningModule
-        if self.initialize_transformerm:
-            print('Initializing graph transformer with L12.pt')
-            model_state = torch.load('logs/L12/L12.pt')["model"]
-            # Remove "encoder." from start of key
-            model_state = {weight_name.removeprefix("encoder."): v for weight_name, v in model_state.items()}
-            missing_keys, unexpected_keys = self.graph_encoder.load_state_dict(
-                model_state, strict=False
-            )
-            del model_state
-
-            print('Missing Keys: ' + str(missing_keys))
-            print('Unexpected Keys: ' + str(unexpected_keys))
+        # if self.initialize_transformerm:
+        #     print('Initializing graph transformer with L12.pt')
+        #     model_state = torch.load('logs/L12/L12.pt')["model"]
+        #     # Remove "encoder." from start of key
+        #     model_state = {weight_name.removeprefix("encoder."): v for weight_name, v in model_state.items()}
+        #     missing_keys, unexpected_keys = self.graph_encoder.load_state_dict(
+        #         model_state, strict=False
+        #     )
+        #     del model_state
+        #
+        #     print('Missing Keys: ' + str(missing_keys))
+        #     print('Unexpected Keys: ' + str(unexpected_keys))
 
         if self.bert_pretrain:
             # NOT USING SCIBERT
@@ -172,23 +172,23 @@ class GINSimclr(pl.LightningModule):
             # USING SCIBERT
             self.text_encoder = TextEncoder(pretrained=True)
 
-        if self.bert_pretrain:
-            # NOT USING SCIBERT, use KV-PLM
-            print("bert load kvplm")
-            ckpt = torch.load('kvplm_pretrained/ckpt_KV_1.pt')
-            if 'module.ptmodel.bert.embeddings.word_embeddings.weight' in ckpt:
-                pretrained_dict = {"main_model."+k[20:]: v for k, v in ckpt.items()}
-            elif 'bert.embeddings.word_embeddings.weight' in ckpt:
-                pretrained_dict = {"main_model."+k[5:]: v for k, v in ckpt.items()}
-            else:
-                pretrained_dict = {"main_model."+k[12:]: v for k, v in ckpt.items()}
-            # print(pretrained_dict.keys())
-            # print(self.text_encoder.state_dict().keys())
-            self.text_encoder.load_state_dict(pretrained_dict, strict=False)
-            # missing_keys, unexpected_keys = self.text_encoder.load_state_dict(pretrained_dict, strict=False)
-            # print(missing_keys)
-            # print(unexpected_keys)
-            print("bert load kvplm DONE")
+        # if self.bert_pretrain:
+        #     # NOT USING SCIBERT, use KV-PLM
+        #     print("bert load kvplm")
+        #     ckpt = torch.load('kvplm_pretrained/ckpt_KV_1.pt')
+        #     if 'module.ptmodel.bert.embeddings.word_embeddings.weight' in ckpt:
+        #         pretrained_dict = {"main_model."+k[20:]: v for k, v in ckpt.items()}
+        #     elif 'bert.embeddings.word_embeddings.weight' in ckpt:
+        #         pretrained_dict = {"main_model."+k[5:]: v for k, v in ckpt.items()}
+        #     else:
+        #         pretrained_dict = {"main_model."+k[12:]: v for k, v in ckpt.items()}
+        #     # print(pretrained_dict.keys())
+        #     # print(self.text_encoder.state_dict().keys())
+        #     self.text_encoder.load_state_dict(pretrained_dict, strict=False)
+        #     # missing_keys, unexpected_keys = self.text_encoder.load_state_dict(pretrained_dict, strict=False)
+        #     # print(missing_keys)
+        #     # print(unexpected_keys)
+        #     print("bert load kvplm DONE")
         # self.feature_extractor.freeze()
 
         self.graph_proj_head = nn.Sequential(
