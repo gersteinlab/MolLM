@@ -14,7 +14,7 @@ This is code for the [MolLM model](https://www.biorxiv.org/content/10.1101/2023.
   - Use other specific environments for each downstream tasks
 - `pretrain`: Code for pretraining MolLM
 
-Model checkpoints files are in zip files downloadable from this [Hugging Face model](https://huggingface.co/andrewt28/MolLM/tree/main). The paths within this folder correspond to locations where the zip folders should be decompressed. The dataset is available at this [Hugging Face dataset](https://huggingface.co/datasets/andrewt28/MolLM-dataset).
+Model checkpoints files are in zip files downloadable from this [Hugging Face model](https://huggingface.co/andrewt28/MolLM/tree/main). The paths within this folder correspond to locations where the zip folders should be decompressed. The dataset is available at this [Hugging Face dataset](https://huggingface.co/datasets/andrewt28/MolLM-dataset/tree/main).
 
 ## Pre-training
 
