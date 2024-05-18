@@ -37,9 +37,8 @@ Finally, for molecule prediction, within the `downstream/MoleculePrediction` fol
 @article{tang2023mollm,
   title={MolLM: A Unified Language Model to Integrate Biomedical Text with 2D and 3D Molecular Representations},
   author={Tang, Xiangru and Tran, Andrew and Tan, Jeffrey and Gerstein, Mark},
-  journal={bioRxiv},
-  pages={2023--11},
-  year={2023},
-  publisher={Cold Spring Harbor Laboratory}
+  journal={Bioinformatics},
+  year={2024},
+  publisher={Oxford University Press}
 }
 ```
