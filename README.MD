@@ -34,11 +34,19 @@ Finally, for molecule prediction, within the `downstream/MoleculePrediction` fol
 
 ## Cite us
 ```
-@article{tang2023mollm,
-  title={MolLM: A Unified Language Model to Integrate Biomedical Text with 2D and 3D Molecular Representations},
-  author={Tang, Xiangru and Tran, Andrew and Tan, Jeffrey and Gerstein, Mark},
-  journal={Bioinformatics},
-  year={2024},
-  publisher={Oxford University Press}
+@article{10.1093/bioinformatics/btae260,
+    author = {Tang, Xiangru and Tran, Andrew and Tan, Jeffrey and Gerstein, Mark B},
+    title = "{MolLM: a unified language model for integrating biomedical text with 2D and 3D molecular representations}",
+    journal = {Bioinformatics},
+    volume = {40},
+    number = {Supplement_1},
+    pages = {i357-i368},
+    year = {2024},
+    month = {06},
+    abstract = "{The current paradigm of deep learning models for the joint representation of molecules and text primarily relies on 1D or 2D molecular formats, neglecting significant 3D structural information that offers valuable physical insight. This narrow focus inhibits the models’ versatility and adaptability across a wide range of modalities. Conversely, the limited research focusing on explicit 3D representation tends to overlook textual data within the biomedical domain.We present a unified pre-trained language model, MolLM, that concurrently captures 2D and 3D molecular information alongside biomedical text. MolLM consists of a text Transformer encoder and a molecular Transformer encoder, designed to encode both 2D and 3D molecular structures. To support MolLM’s self-supervised pre-training, we constructed 160K molecule-text pairings. Employing contrastive learning as a supervisory signal for learning, MolLM demonstrates robust molecular representation capabilities across four downstream tasks, including cross-modal molecule and text matching, property prediction, captioning, and text-prompted molecular editing. Through ablation, we demonstrate that the inclusion of explicit 3D representations improves performance in these downstream tasks.Our code, data, pre-trained model weights, and examples of using our model are all available at https://github.com/gersteinlab/MolLM. In particular, we provide Jupyter Notebooks offering step-by-step guidance on how to use MolLM to extract embeddings for both molecules and text.}",
+    issn = {1367-4811},
+    doi = {10.1093/bioinformatics/btae260},
+    url = {https://doi.org/10.1093/bioinformatics/btae260},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/40/Supplement\_1/i357/58355106/btae260.pdf},
 }
 ```
