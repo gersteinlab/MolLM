@@ -2,7 +2,7 @@
 
 
 <p align="center">
-   📖 <a href="https://www.biorxiv.org/content/10.1101/2023.11.25.568656v3" target="_blank">Paper</a>  
+   📖 <a href="https://academic.oup.com/bioinformatics/article/40/Supplement_1/i357/7700902" target="_blank">Paper</a>  
 </p>
 
 
